@@ -4,9 +4,9 @@ function Directory(props) {
     return (
 
         <ul className="list-unstyled row">
-            {props.results.map(result => (
+            {props.results.map((result, idx) => (
 
-                <li className="media shadow-sm p-3 mb-5 bg-white rounded border border-secondary col-md-6" key={result.id.value}>
+                <li className="media shadow-sm p-3 mb-5 bg-white rounded border border-secondary col-md-6" key={idx}>
                     <img src={result.picture.large} className="mr-3" alt={result.name.first} />
                     <div className="media-body ">
                     <h5 className="mt-0 mb-1">{result.name.first + " " + result.name.last}</h5>

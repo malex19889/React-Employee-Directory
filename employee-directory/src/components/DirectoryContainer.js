@@ -6,7 +6,8 @@ import API from "../utils/API";
 class DirectoryContainer extends Component {
     state = {
         sort: "",
-        employees: []
+        employees: [],
+        sortedEmployees: []
     };
 
     // pull gen data from API
@@ -16,15 +17,34 @@ class DirectoryContainer extends Component {
 
     employeeData = ()=>{
         API.search()
-        .then((res)=> this.setState({employees: res.data.results}))
+        .then((res)=> this.setState({
+            employees: res.data.results,
+            sortedEmployees: res.data.results
+        }))
         .catch(err=> console.log(err))
     }
 
+    handleInputChange = event => {
+
+        const employees = this.state.employees;
+        const UserInput = event.target.value;
+       
+        if(UserInput === ""){ 
+            this.setState({sortedEmployees:employees})
+        } else{
+            const sortedEmployees = employees.filter(n => n.name.first.toLowerCase().includes(UserInput.toLowerCase())) 
+           this.setState({ sortedEmployees}); 
+        }
+        
+
+
+    };
+    
     render(){
         return(
             <div>
-                <Filter />
-                <Directory results={this.state.employees}/>
+                <Filter  handleInputChange={this.handleInputChange} />
+                <Directory results={this.state.sortedEmployees}/>
             </div>
         )
     }
