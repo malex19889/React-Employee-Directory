@@ -2,7 +2,7 @@
   "name": "employee-directory",
   "version": "0.1.0",
   "private": true,
-  "hommepage": "https://malex19889.github.io/React-Employee-Directory/",
+  "hommepage": "https://malex19889.github.io/employee-Directory/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
