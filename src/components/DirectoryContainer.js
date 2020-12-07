@@ -59,12 +59,12 @@ class DirectoryContainer extends Component {
         if (this.state.order === "A-Z") {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
             this.setState({
-                filteredEmployees: sorted
+                sortedEmployees: sorted
             })
         } else {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1)
             this.setState({
-                filteredEmployees: sorted
+                sortedEmployees: sorted
             })
         }
     }
@@ -73,12 +73,12 @@ class DirectoryContainer extends Component {
         if (this.state.order === "A-Z") {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
             this.setState({
-                filteredEmployees: sorted
+                sortedEmployees: sorted
             })
         } else {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? -1 : 1)
             this.setState({
-                filteredEmployees: sorted
+                sortedEmployees: sorted
             })
         }
     }
