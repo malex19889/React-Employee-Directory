@@ -56,7 +56,6 @@ class DirectoryContainer extends Component {
     }
 
     sortByFirstName = () => {
-        alert(this.state.order)
         if (this.state.order === "A-Z") {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
             this.setState({
