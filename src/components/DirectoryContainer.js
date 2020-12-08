@@ -41,8 +41,8 @@ class DirectoryContainer extends Component {
     // handler for sort click
     handleSortChange = event => {
         const ord = event.target.name;
-        this.setState({ order: event.target.value });
-        switch (ord) {
+        this.setState({ order: event.target.value },()=>{
+           switch (ord) {
             case "first":
                 this.sortByFirstName()
                 break;
@@ -51,7 +51,9 @@ class DirectoryContainer extends Component {
                 break;
             default:
                 break;
-        }
+        } 
+        });
+        
 
     }
 
