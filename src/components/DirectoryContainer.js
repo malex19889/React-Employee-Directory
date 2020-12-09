@@ -41,6 +41,7 @@ class DirectoryContainer extends Component {
     // handler for sort click
     handleSortChange = event => {
         const ord = event.target.name;
+        alert(ord)
         this.setState({ order: event.target.value },()=>{
            switch (ord) {
             case "first":
@@ -72,12 +73,14 @@ class DirectoryContainer extends Component {
     }
 
     sortByLastName = () => {
+        alert("last")
         if (this.state.order === "A-Z") {
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
             this.setState({
                 sortedEmployees: sorted
             })
         } else {
+            alert("last")
             const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? -1 : 1)
             this.setState({
                 sortedEmployees: sorted
