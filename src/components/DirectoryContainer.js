@@ -40,53 +40,26 @@ class DirectoryContainer extends Component {
     };
     // handler for sort click
     handleSortChange = event => {
-        const ord = event.target.name;
-        alert(ord)
-        this.setState({ order: event.target.value },()=>{
-           switch (ord) {
-            case "first":
-                this.sortByFirstName()
-                break;
-            case "last":
-                this.sortByLastName()
-                break;
-            default:
-                break;
-        } 
+        const field = event.target.name;
+        const order = event.target.value;
+        this.sortByName(order, field);
+    }
+
+    sortByName = (order, field) => {
+        let sorted;
+        if (order === "A-Z") {
+            sorted = this.state.sortedEmployees.sort((a, b) => (a.name[field] > b.name[field]) ? 1 : -1);
+
+        } else {
+            sorted = this.state.sortedEmployees.sort((a, b) => (a.name[field] > b.name[field]) ? -1 : 1);
+
+        }
+        this.setState({
+            sortedEmployees: sorted,
+            order
         });
-        
-
     }
 
-    sortByFirstName = () => {
-        if (this.state.order === "A-Z") {
-            const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
-            this.setState({
-                sortedEmployees: sorted
-            })
-        } else {
-            const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.first > b.name.first) ? -1 : 1)
-            this.setState({
-                sortedEmployees: sorted
-            })
-        }
-    }
-
-    sortByLastName = () => {
-        alert("last")
-        if (this.state.order === "A-Z") {
-            const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
-            this.setState({
-                sortedEmployees: sorted
-            })
-        } else {
-            alert("last")
-            const sorted = this.state.sortedEmployees.sort((a, b) => (a.name.last > b.name.last) ? -1 : 1)
-            this.setState({
-                sortedEmployees: sorted
-            })
-        }
-    }
 
     render() {
         return (
